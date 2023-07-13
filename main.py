@@ -22,9 +22,8 @@ while is_on:
         drink = coffee_menu.find_drink(choice)
         # if drink on the menu and resource sufficient machine asks for payment
         if drink is not None and coffee_machine.is_resource_sufficient(drink):
-            cost = drink.cost
-            money_machine.make_payment(cost)
-            """if payment successful makes a drink"""
-            coffee_machine.make_coffee(drink)
-    # if choice not on the menu, user is prompted for input again"""
+            if money_machine.make_payment(drink.cost):
+                # if payment successful makes a drink
+                coffee_machine.make_coffee(drink)
+    # if choice not on the menu, user is prompted for input again
 
